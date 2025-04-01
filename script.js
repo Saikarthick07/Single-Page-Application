@@ -1,89 +1,129 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Navigation
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    navToggle.addEventListener('click', () => {
-        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', !expanded);
-        navMenu.classList.toggle('show');
-    });
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    // Section navigation with focus management
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const sectionId = link.getAttribute('href');
-            const section = document.querySelector(sectionId);
-            section.focus();
-            
-            // Update history
-            history.pushState({ section: sectionId }, '', sectionId);
-        });
-    });
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
 
-    // Browser back button handling
-    window.addEventListener('popstate', (event) => {
-        if (event.state && event.state.section) {
-            document.querySelector(event.state.section).focus();
-        }
-    });
+.navbar {
+    background: #2c3e50;
+    padding: 1rem;
+}
 
-    // Modal
-    const modal = document.querySelector('.modal');
-    const modalTrigger = document.querySelector('.modal-trigger');
-    const modalClose = document.querySelector('.modal-close');
+.nav-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
 
-    modalTrigger.addEventListener('click', () => {
-        modal.hidden = false;
-        modal.querySelector('.modal-content').focus();
-    });
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
 
-    modalClose.addEventListener('click', () => {
-        modal.hidden = true;
-        modalTrigger.focus();
-    });
+.nav-menu[hidden] {
+    display: none;
+}
 
-    // Form toggle
-    const toggleForm = document.querySelector('.toggle-form');
-    const form = document.querySelector('#event-form');
-    
-    toggleForm.addEventListener('click', () => {
-        const expanded = toggleForm.getAttribute('aria-expanded') === 'true';
-        toggleForm.setAttribute('aria-expanded', !expanded);
-        form.classList.toggle('hidden');
-    });
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    display: block;
+}
 
-    // Switch
-    const switchInput = document.querySelector('#updates');
-    switchInput.addEventListener('change', () => {
-        switchInput.setAttribute('aria-checked', switchInput.checked);
-    });
+.nav-menu a:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
 
-    // Form submission
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const messageDiv = document.querySelector('#form-message');
-        
-        // Validation
-        const name = document.querySelector('#name').value;
-        const email = document.querySelector('#email').value;
-        
-        if (!name || !email) {
-            messageDiv.textContent = 'Please fill all required fields';
-            messageDiv.style.color = 'red';
-            return;
-        }
+section {
+    padding: 2rem;
+    min-height: 100vh;
+}
 
-        if (!email.includes('@')) {
-            messageDiv.textContent = 'Please enter a valid email';
-            messageDiv.style.color = 'red';
-            return;
-        }
+h1, h2 {
+    color: #2c3e50;
+}
 
-        // Success
-        messageDiv.textContent = 'Thank you for registering!';
-        messageDiv.style.color = 'green';
-        form.reset();
-    });
-});
+.form-group {
+    margin: 1rem 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #666;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 2px solid #3498db;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background: white;
+    margin: 15% auto;
+    padding: 2rem;
+    width: 70%;
+    max-width: 500px;
+}
+
+.switch input[type="checkbox"] {
+    width: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #2c3e50;
+    }
+
+    .nav-toggle:focus {
+        outline: 2px solid #3498db;
+    }
+}
+
+/* High Contrast Focus */
+:focus {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+}
