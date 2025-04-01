@@ -15,19 +15,34 @@ body {
     padding: 1rem;
 }
 
+.nav-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
 .nav-menu {
     list-style: none;
     display: flex;
     gap: 1rem;
 }
 
+.nav-menu[hidden] {
+    display: none;
+}
+
 .nav-menu a {
     color: white;
     text-decoration: none;
+    padding: 0.5rem;
+    display: block;
 }
 
-.nav-toggle {
-    display: none;
+.nav-menu a:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
 }
 
 section {
@@ -94,16 +109,16 @@ button:focus {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
         flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #2c3e50;
     }
 
-    .nav-menu.show {
-        display: flex;
-    }
-
-    .nav-toggle {
-        display: block;
+    .nav-toggle:focus {
+        outline: 2px solid #3498db;
     }
 }
 
