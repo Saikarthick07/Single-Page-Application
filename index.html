@@ -22,45 +22,62 @@
     </header>
 
     <main>
-        <section id="home" tabindex="-1">
-            <h1>Welcome to Event Registration</h1>
-            <p>Register for our accessible event today!</p>
-            <button class="modal-trigger" aria-haspopup="dialog">View Event Details</button>
+        <section id="home" tabindex="-1" class="hero-section">
+            <div class="hero-content">
+                <h1>Welcome to Accessible Events</h1>
+                <p>Join us in celebrating inclusivity and accessibility for all!</p>
+                <button class="modal-trigger" aria-haspopup="dialog">View Event Details</button>
+                <div class="accessibility-info">
+                    <h2>Why Accessibility Matters</h2>
+                    <p>Accessibility ensures everyone, regardless of ability, can participate fully. From screen readers to keyboard navigation, our events are designed with WCAG 2.1 standards in mind.</p>
+                    <img src="https://via.placeholder.com/300x200?text=People+at+Accessible+Event" alt="Group of diverse people enjoying an accessible event">
+                </div>
+            </div>
         </section>
 
-        <section id="about" tabindex="-1">
+        <section id="about" tabindex="-1" class="about-section">
             <h2>About Our Event</h2>
-            <p>This is an accessible event for everyone.</p>
+            <div class="event-details">
+                <h3>Dummy Accessible Event: "Inclusion Fest 2025"</h3>
+                <p><strong>Date:</strong> April 15, 2025</p>
+                <p><strong>Location:</strong> Virtual & In-Person (Community Center, 123 Access St.)</p>
+                <p><strong>Features:</strong> Live captioning, sign language interpreters, wheelchair-accessible venues, and sensory-friendly spaces.</p>
+                <img src="https://via.placeholder.com/400x250?text=Sign+Language+Interpreter" alt="Sign language interpreter at an event">
+            </div>
+            <div class="accessibility-benefits">
+                <h3>Benefits of Accessibility in Technology</h3>
+                <ul>
+                    <li><strong>Inclusivity:</strong> Reaches a wider audience, including the 1 billion people with disabilities worldwide.</li>
+                    <li><strong>Innovation:</strong> Drives creative solutions that benefit everyone (e.g., voice recognition).</li>
+                    <li><strong>Legal Compliance:</strong> Meets standards like ADA and WCAG, avoiding penalties.</li>
+                    <li><strong>User Experience:</strong> Improves usability for all, not just those with disabilities.</li>
+                </ul>
+                <p>In today's tech-driven world, accessibility is crucial for equity, enhancing digital experiences, and ensuring no one is left behind.</p>
+            </div>
         </section>
 
         <section id="register" tabindex="-1">
             <h2>Register Now</h2>
             <button class="toggle-form" aria-expanded="false" aria-controls="event-form">Show Registration Form</button>
-            
             <form id="event-form" class="hidden" aria-label="Event Registration Form">
                 <fieldset>
                     <legend>Tell us about your event attendance</legend>
-                    
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" required aria-required="true">
                     </div>
-
                     <div class="form-group">
                         <label for="email">Email *</label>
                         <input type="email" id="email" required aria-required="true">
                     </div>
-
                     <div class="form-group">
                         <label for="attendees">Number of Attendees</label>
                         <input type="number" id="attendees" min="1">
                     </div>
-
                     <div class="form-group switch">
                         <label for="updates">Receive Updates?</label>
                         <input type="checkbox" id="updates" role="switch" aria-checked="false">
                     </div>
-
                     <button type="submit">Submit Registration</button>
                 </fieldset>
             </form>
@@ -70,8 +87,12 @@
 
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
         <div class="modal-content">
-            <h2 id="modal-title">Event Details</h2>
-            <p>Event Date: April 15, 2025</p>
+            <h2 id="modal-title">Accessible Event Details</h2>
+            <ul>
+                <li><strong>Inclusion Fest 2025</strong> - April 15, 2025: Virtual and in-person with live captioning and ASL.</li>
+                <li><strong>Tech Access Summit</strong> - May 10, 2025: Fully virtual with screen reader support and keyboard navigation.</li>
+                <li><strong>Sensory-Friendly Concert</strong> - June 22, 2025: Low lighting, quiet zones, and tactile experiences.</li>
+            </ul>
             <button class="modal-close" aria-label="Close dialog">×</button>
         </div>
     </div>
