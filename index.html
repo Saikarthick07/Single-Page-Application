@@ -9,11 +9,14 @@
 <body>
     <header>
         <nav class="navbar" role="navigation" aria-label="Main navigation">
-            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-            <ul class="nav-menu" role="menubar">
-                <li><a href="#home" role="menuitem">Home</a></li>
-                <li><a href="#about" role="menuitem">About</a></li>
-                <li><a href="#register" role="menuitem">Register</a></li>
+            <button class="nav-toggle" 
+                    aria-label="Toggle navigation" 
+                    aria-expanded="false" 
+                    aria-controls="nav-menu">☰</button>
+            <ul id="nav-menu" class="nav-menu" role="menubar" hidden>
+                <li><a href="#home" role="menuitem" tabindex="0">Home</a></li>
+                <li><a href="#about" role="menuitem" tabindex="0">About</a></li>
+                <li><a href="#register" role="menuitem" tabindex="0">Register</a></li>
             </ul>
         </nav>
     </header>
