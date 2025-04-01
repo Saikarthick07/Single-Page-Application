@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration - Accessible App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <ul class="nav-menu" role="menubar">
+                <li><a href="#home" role="menuitem">Home</a></li>
+                <li><a href="#about" role="menuitem">About</a></li>
+                <li><a href="#register" role="menuitem">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" tabindex="-1">
+            <h1>Welcome to Event Registration</h1>
+            <p>Register for our accessible event today!</p>
+            <button class="modal-trigger" aria-haspopup="dialog">View Event Details</button>
+        </section>
+
+        <section id="about" tabindex="-1">
+            <h2>About Our Event</h2>
+            <p>This is an accessible event for everyone.</p>
+        </section>
+
+        <section id="register" tabindex="-1">
+            <h2>Register Now</h2>
+            <button class="toggle-form" aria-expanded="false" aria-controls="event-form">Show Registration Form</button>
+            
+            <form id="event-form" class="hidden" aria-label="Event Registration Form">
+                <fieldset>
+                    <legend>Tell us about your event attendance</legend>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" required aria-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required aria-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attendees">Number of Attendees</label>
+                        <input type="number" id="attendees" min="1">
+                    </div>
+
+                    <div class="form-group switch">
+                        <label for="updates">Receive Updates?</label>
+                        <input type="checkbox" id="updates" role="switch" aria-checked="false">
+                    </div>
+
+                    <button type="submit">Submit Registration</button>
+                </fieldset>
+            </form>
+            <div id="form-message" role="alert" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal-content">
+            <h2 id="modal-title">Event Details</h2>
+            <p>Event Date: April 15, 2025</p>
+            <button class="modal-close" aria-label="Close dialog">×</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
